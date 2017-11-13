@@ -37,31 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
         setButtonBottom();
 
-        if (mStoryIndex == 4 || mStoryIndex == 5 || mStoryIndex == 6) {
-
-            new AlertDialog.Builder(this)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("You have reached the end!")
-                    .setMessage("Do you want to restart?")
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            storyTextView.setText(R.string.T1_Story);
-                            buttonTop.setText(R.string.T1_Ans1);
-                            buttonBottom.setText(R.string.T2_Ans2);
-
-                            setButtonTop();
-                            setButtonBottom();
-
-                        }
-                    })
-
-                    .setNegativeButton("No", null)
-                    .show();
-
-        }
     }
 
     public void setButtonTop() {
