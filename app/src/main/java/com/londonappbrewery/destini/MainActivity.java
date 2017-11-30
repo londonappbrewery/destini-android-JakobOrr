@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO: Steps 4 & 8 - Declare member variables here:
 
-    TextView storyTextView;
-    Button buttonTop;
-    Button buttonBottom;
-    int mStoryIndex = 1;
+    private TextView storyTextView;
+    private Button buttonTop;
+    private Button buttonBottom;
+    private int mStoryIndex = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,115 +31,58 @@ public class MainActivity extends AppCompatActivity {
 
         // TODO: Steps 6, 7, & 9 - Set a listener on the top button:
 
-        setButtonTop();
-
-        // TODO: Steps 6, 7, & 9 - Set a listener on the bottom button:
-
-        setButtonBottom();
-
-    }
-
-    public void setButtonTop() {
-
         buttonTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                mStoryIndex = 3;
-                storyTextView.setText(R.string.T3_Story);
-                buttonTop.setText(R.string.T3_Ans1);
-                buttonBottom.setText(R.string.T3_Ans2);
+                if (mStoryIndex == 1 || mStoryIndex == 2) {
 
-                buttonTop.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                    storyTextView.setText(R.string.T3_Story);
+                    buttonTop.setText(R.string.T3_Ans1);
+                    buttonBottom.setText(R.string.T3_Ans2);
+                    mStoryIndex = 3;
 
-                        mStoryIndex = 6;
-                        storyTextView.setText(R.string.T6_End);
-                        buttonTop.setVisibility(View.GONE);
-                        buttonBottom.setVisibility(View.GONE);
+                }else {
 
-                    }
-                });
+                    storyTextView.setText(R.string.T6_End);
+                    buttonTop.setVisibility(View.GONE);
+                    buttonBottom.setVisibility(View.GONE);
 
-                buttonBottom.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        mStoryIndex = 5;
-                        storyTextView.setText(R.string.T5_End);
-                        buttonTop.setVisibility(View.GONE);
-                        buttonBottom.setVisibility(View.GONE);
-
-                    }
-                });
-
+                }
             }
         });
 
-    }
 
-    public void setButtonBottom() {
+        // TODO: Steps 6, 7, & 9 - Set a listener on the bottom button:
 
         buttonBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                mStoryIndex = 2;
-                storyTextView.setText(R.string.T2_Story);
-                buttonTop.setText(R.string.T2_Ans1);
-                buttonBottom.setText(R.string.T2_Ans2);
+                if(mStoryIndex == 1) {
 
-                buttonTop.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                    storyTextView.setText(R.string.T2_Story);
+                    buttonTop.setText(R.string.T2_Ans1);
+                    buttonBottom.setText(R.string.T2_Ans2);
+                    mStoryIndex = 2;
 
-                        mStoryIndex = 3;
-                        storyTextView.setText(R.string.T3_Story);
-                        buttonTop.setText(R.string.T3_Ans1);
-                        buttonBottom.setText(R.string.T3_Ans2);
+                }else if(mStoryIndex == 2) {
 
-                        buttonTop.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
+                    storyTextView.setText(R.string.T4_End);
+                    buttonTop.setVisibility(View.GONE);
+                    buttonBottom.setVisibility(View.GONE);
 
-                                mStoryIndex = 6;
-                                storyTextView.setText(R.string.T6_End);
-                                buttonTop.setVisibility(View.GONE);
-                                buttonBottom.setVisibility(View.GONE);
+                }else {
 
-                            }
-                        });
+                    storyTextView.setText(R.string.T5_End);
+                    buttonTop.setVisibility(View.GONE);
+                    buttonBottom.setVisibility(View.GONE);
 
-                        buttonBottom.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-
-                                mStoryIndex = 5;
-                                storyTextView.setText(R.string.T5_End);
-                                buttonTop.setVisibility(View.GONE);
-                                buttonBottom.setVisibility(View.GONE);
-
-                            }
-                        });
-
-                    }
-                });
-
-                buttonBottom.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        mStoryIndex = 4;
-                        storyTextView.setText(R.string.T4_End);
-                        buttonTop.setVisibility(View.GONE);
-                        buttonBottom.setVisibility(View.GONE);
-
-                    }
-                });
-
+                }
             }
         });
 
+
     }
+
 }
